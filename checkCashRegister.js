@@ -33,9 +33,9 @@ function checkCashRegister(price, cash, cid) {
     for (const [key, compValue] of Object.entries(item)) {
       // returns current denomination compartment
       let denominationCompartment = cid.find(element => element[0] === key);
-      // returns number of coins or bills
+      // returns number of coins or bills in current cid compartment
       let denominationCompartmentBreakdown = (denominationCompartment[1] / compValue).toFixed();
-      
+      // returns the subtrahend, to be used on change
       let subtrahend = Math.floor(change / compValue) < denominationCompartmentBreakdown ? Math.floor(change / compValue).toFixed(2) : (denominationCompartment[1]);
 
       if (rollingValue > 0) {
